@@ -51,8 +51,8 @@ prisma deploy
 prisma generate
 ```
 
-This updates the following files, as specified in prisma.yml:
+This updates the following files, as specified in [prisma.yml](prisma.yml):
 
-- `./generated/prisma.js`
-- `./generated/prisma.ts`
-- `./generated/prisma.graphql`
+- [`./generated/prisma.js`](./generated/prisma.js)
+- [`./generated/prisma.ts`](./generated/prisma.ts)
+- [`./generated/prisma.graphql`](./generated/prisma.graphql)
