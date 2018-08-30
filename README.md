@@ -8,7 +8,7 @@ You can view the generated clients in the `generated` directory:
 - [Prisma Client for TypeScript](./generated/prisma.ts)
 - [GraphQL schema of Prisma API](./generated/prisma.graphql)
 
-The clients are generated using the `prisma generate` command. This commands reads the information that's specified undere the `generate` property in [prisma.yml](prisma.yml):
+The clients are generated using the `prisma generate` command. This commands reads the information that's specified under the `generate` property in [prisma.yml](prisma.yml):
 
 ```yml
 endpoint: http://localhost:4466
@@ -21,6 +21,34 @@ generate:
     output: ./generated/prisma.js
   - generator: schema
     output: ./generated/prisma.graphql
+```
+
+The Prisma Service is based on the following [data model](./datamodel.graphql):
+
+```graphql
+type Link {
+  id: ID! @unique
+  createdAt: DateTime!
+  description: String!
+  url: String!
+  postedBy: User
+  votes: [Vote!]!
+}
+
+type User {
+  id: ID! @unique
+  name: String!
+  email: String! @unique
+  password: String!
+  links: [Link!]!
+  votes: [Vote!]!
+}
+
+type Vote {
+  id: ID! @unique
+  link: Link!
+  user: User!
+}
 ```
 
 ## Usage
